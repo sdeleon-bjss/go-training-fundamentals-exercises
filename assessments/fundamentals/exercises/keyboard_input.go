@@ -1,4 +1,4 @@
-package exercise_02_keyboard_input
+package exercises
 
 import (
 	"fmt"

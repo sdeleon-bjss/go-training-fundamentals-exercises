@@ -1,4 +1,4 @@
-package exercise_01_strings
+package exercises
 
 func ConcatStrings(strings ...string) string {
 	var result string
