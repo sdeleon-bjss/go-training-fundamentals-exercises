@@ -11,10 +11,8 @@ type numberSorts struct {
 	expected []int
 }
 
-var testCases []numberSorts
-
 func TestAscending(t *testing.T) {
-	testCases = []numberSorts{
+	testCases := []numberSorts{
 		{
 			input:    []int{10, 9, 8, 7, 6, 5, 4, 3, 2, 1},
 			expected: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
@@ -34,7 +32,7 @@ func TestAscending(t *testing.T) {
 }
 
 func TestDescending(t *testing.T) {
-	testCases = []numberSorts{
+	testCases := []numberSorts{
 		{
 			input:    []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
 			expected: []int{10, 9, 8, 7, 6, 5, 4, 3, 2, 1},
