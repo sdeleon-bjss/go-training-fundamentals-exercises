@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"bjss-go-training/pkg"
+	"fmt"
+)
 
+// Exercise 2:
 // Create a program that lets the user input a first name, middle name and last name. Display the person's full name on one line. [Keyboard input]
 func main() {
 	var firstName, middleName, lastName string
@@ -14,11 +18,7 @@ func main() {
 	fmt.Println("Please enter your last name: ")
 	fmt.Scan(&lastName)
 
-	fullName := GetFullName(firstName, middleName, lastName)
+	fullName := pkg.GetFullName(firstName, middleName, lastName)
 
 	println("Your full name is: ", fullName)
-}
-
-func GetFullName(first, middle, last string) string {
-	return first + " " + middle + " " + last
 }

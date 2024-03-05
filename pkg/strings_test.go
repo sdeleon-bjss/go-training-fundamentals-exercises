@@ -1,7 +1,7 @@
-package main_test
+package pkg_test
 
 import (
-	pkg "bjss-go-training/assessments/fundamentals/01_strings"
+	"bjss-go-training/pkg"
 	"testing"
 )
 

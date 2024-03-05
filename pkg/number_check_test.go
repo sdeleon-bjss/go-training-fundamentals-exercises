@@ -1,11 +1,11 @@
-package main_test
+package pkg_test
 
 import (
-	pkg "bjss-go-training/assessments/fundamentals/03_number_check"
+	"bjss-go-training/pkg"
 	"testing"
 )
 
-type testCase struct {
+type testRangeScenario struct {
 	scenario string
 	num      int
 	start    int
@@ -14,7 +14,7 @@ type testCase struct {
 }
 
 func TestIsNumberBetweenRange(t *testing.T) {
-	testCases := []testCase{
+	testCases := []testRangeScenario{
 		{
 			scenario: "Number is between the range of 1 and 10",
 			num:      5,

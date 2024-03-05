@@ -1,17 +1,17 @@
-package main_test
+package pkg_test
 
 import (
-	pkg "bjss-go-training/assessments/fundamentals/07_dice_roller"
+	"bjss-go-training/pkg"
 	"testing"
 )
 
-type TestRoll struct {
+type testRoll struct {
 	roll     int
 	expected string
 }
 
 func TestProcessRoll(t *testing.T) {
-	testCases := []TestRoll{
+	testCases := []testRoll{
 		{roll: 1, expected: "NEUTRAL"},
 		{roll: 2, expected: "SNAKE-EYES-CRAPS"},
 		{roll: 3, expected: "LOSS-CRAPS"},

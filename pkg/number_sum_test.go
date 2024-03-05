@@ -1,7 +1,7 @@
-package main_test
+package pkg_test
 
 import (
-	pkg "bjss-go-training/assessments/fundamentals/05_number_sum"
+	"bjss-go-training/pkg"
 	"testing"
 )
 
@@ -33,7 +33,6 @@ func TestCalculateSum(t *testing.T) {
 
 	if tripleDigitSum != expectedTripleDigitSum {
 		t.Errorf("Expected %d but got %d", expectedTripleDigitSum, tripleDigitSum)
-
 	}
 
 	if finalSum != expectedFinal {
