@@ -50,3 +50,37 @@ func TestDescending(t *testing.T) {
 		}
 	}
 }
+
+type testOddEvens struct {
+	scenario      string
+	numbers       []int
+	direction     string
+	expectedOdds  int
+	expectedEvens int
+}
+
+func TestOddEvenCount(t *testing.T) {
+	testCases := []testOddEvens{
+		{
+			scenario:      "test ascending",
+			numbers:       []int{5, 9, 1, 4, 7, 6, 3, 8, 2, 10},
+			direction:     "ascending",
+			expectedOdds:  25,
+			expectedEvens: 30,
+		},
+		{
+			scenario:      "test descending",
+			numbers:       []int{5, 9, 1, 4, 7, 6, 3, 8, 2, 10},
+			direction:     "descending",
+			expectedOdds:  -25,
+			expectedEvens: -30,
+		},
+	}
+
+	for _, tc := range testCases {
+		odds, evens := pkg.OddEvenCount(tc.numbers, tc.direction)
+		if odds != tc.expectedOdds || evens != tc.expectedEvens {
+			t.Errorf("Expected %d odds and %d evens but got %d odds and %d evens", tc.expectedOdds, tc.expectedEvens, odds, evens)
+		}
+	}
+}
