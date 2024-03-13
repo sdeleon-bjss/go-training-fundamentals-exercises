@@ -1,23 +1,21 @@
 package main
 
-import "bjss-go-training/pkg"
+import (
+	"bjss-go-training/pkg"
+	"fmt"
+)
 
 // Exercise 9:
 // Extend the program in Exercise 2 by slicing the full name into 3 slices. Display the full-name : <full-name>, middle-name : <middle-name> and surname : <surname> on 3 separate lines. [Slices] [Structures]
 func main() {
-	firstName := "Steven"
-	middleName := "William"
-	lastName := "DeLeon"
+	fullName := "Steven William DeLeon"
 
-	fullName := pkg.GetFullName(firstName, middleName, lastName)
-
-	println(fullName)
-
-	name := pkg.Name{
-		First:  fullName[:len(firstName)],
-		Middle: fullName[len(firstName)+1 : len(firstName)+1+len(middleName)],
-		Last:   fullName[len(firstName)+1+len(middleName)+1:],
+	name := pkg.Name{}
+	err := name.SetFullName(fullName)
+	if err != nil {
+		fmt.Println(err)
+		return
 	}
 
-	println(name.GetFullName())
+	fmt.Printf("full-name : %s, middle-name : %s, and surname : %s ", name.GetFullName(), name.Middle, name.Last)
 }

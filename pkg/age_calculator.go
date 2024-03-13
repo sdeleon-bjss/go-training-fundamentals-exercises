@@ -5,7 +5,10 @@ import (
 	"time"
 )
 
-func CalculateAge(dob time.Time) int {
-	ageInYears := age.Age(dob)
-	return ageInYears
+type Person struct {
+	DOB time.Time
+}
+
+func (p *Person) Age() int {
+	return age.Age(p.DOB)
 }

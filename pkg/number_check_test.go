@@ -5,37 +5,36 @@ import (
 	"testing"
 )
 
-type testRangeScenario struct {
-	scenario string
-	num      int
-	start    int
-	end      int
-	expected bool
-}
-
 func TestIsNumberBetweenRange(t *testing.T) {
-	testCases := []testRangeScenario{
+	testCases := []struct {
+		scenario string
+		num      int
+		start    int
+		end      int
+		want     bool
+	}{
 		{
 			scenario: "Number is between the range of 1 and 10",
 			num:      5,
 			start:    1,
 			end:      10,
-			expected: true,
+			want:     true,
 		},
 		{
 			scenario: "Number is not between range of 1 and 10",
 			num:      15,
 			start:    1,
 			end:      10,
-			expected: false,
+			want:     false,
 		},
 	}
 
 	for _, tc := range testCases {
 		t.Run(tc.scenario, func(t *testing.T) {
-			result := pkg.IsNumberBetweenRange(tc.num, tc.start, tc.end)
-			if result != tc.expected {
-				t.Errorf("For scenario '%s': Expected %t but got %t", tc.scenario, tc.expected, result)
+			got := pkg.IsNumberBetweenRange(tc.num, tc.start, tc.end)
+
+			if got != tc.want {
+				t.Errorf("For scenario '%s': Expected %t but got %t", tc.scenario, tc.want, got)
 			}
 		})
 	}

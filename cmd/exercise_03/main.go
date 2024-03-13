@@ -12,7 +12,7 @@ func main() {
 	fmt.Println("Please enter a number: ")
 	fmt.Scan(&inputNumber)
 
-	number := pkg.IsNumberBetweenRange(inputNumber, 1, 10)
+	result := pkg.IsNumberBetweenRange(inputNumber, 1, 10)
 
-	println("Is the number between 1 and 10? ", number)
+	println("Is the number between 1 and 10? ", result)
 }

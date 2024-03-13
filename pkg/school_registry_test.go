@@ -5,56 +5,49 @@ import (
 	"testing"
 )
 
-type testPupil struct {
-	scenario            string
-	pupil               []pkg.Person
-	expectedFullName    []string
-	expectedDateOfBirth []string
-	expectedAge         []int
-}
-
 func TestNewPupil(t *testing.T) {
-	tests := []testPupil{
-		{
-			scenario: "Create a new pupil",
-			pupil: []pkg.Person{
-				pkg.NewPupil("Steven", "William", "DeLeon", "01/28/1992", 32),
-				pkg.NewPupil("Gracie", "my", "cat", "06/22/2018", 6),
-				pkg.NewPupil("Penelope", "my", "cat", "05/12/2017", 7),
-				pkg.NewPupil("Mr. Boot", "my", "cat", "10/18/2019", 5),
-			},
-			expectedFullName: []string{
-				"Steven William DeLeon",
-				"Gracie my cat",
-				"Penelope my cat",
-				"Mr. Boot my cat",
-			},
-			expectedDateOfBirth: []string{
-				"01/28/1992",
-				"06/22/2018",
-				"05/12/2017",
-				"10/18/2019",
-			},
-			expectedAge: []int{
-				32,
-				6,
-				7,
-				5,
-			},
-		},
+	testCases := []struct {
+		firstName     string
+		middleName    string
+		lastName      string
+		dateOfBirth   string
+		expectedError bool
+	}{
+		{"Archie", "James", "Johnson", "04/15/2013", false},
+		{"", "James", "Johnson", "04/15/2013", true},
+		{"Archie", "", "Johnson", "04/15/2013", true},
+		{"Archie", "James", "", "04/15/2013", true},
+		{"Archie", "James", "Johnson", "04/15/20132", true},
 	}
 
-	for _, test := range tests {
-		for i, pupil := range test.pupil {
-			if pupil.GetFullName() != test.expectedFullName[i] {
-				t.Errorf("Test: %s - Expected: %s, Got: %s", test.scenario, test.expectedFullName[i], pupil.GetFullName())
-			}
-			if pupil.GetDateOfBirth() != test.expectedDateOfBirth[i] {
-				t.Errorf("Test: %s - Expected: %s, Got: %s", test.scenario, test.expectedDateOfBirth[i], pupil.GetDateOfBirth())
-			}
-			if pupil.GetAge() != test.expectedAge[i] {
-				t.Errorf("Test: %s - Expected: %d, Got: %d", test.scenario, test.expectedAge[i], pupil.GetAge())
-			}
+	for _, tc := range testCases {
+		_, err := pkg.NewPupil(tc.firstName, tc.middleName, tc.lastName, tc.dateOfBirth)
+		if (err != nil) != tc.expectedError {
+			t.Errorf("Expected error: %v but got %v", tc.expectedError, err)
 		}
+	}
+}
+
+func TestPupil_GetFullName(t *testing.T) {
+	pupil, _ := pkg.NewPupil("Archie", "James", "Johnson", "04/15/2013")
+
+	if pupil.GetFullName() != "Archie James Johnson" {
+		t.Errorf("Expected 'Archie James Johnson' but got %s", pupil.GetFullName())
+	}
+}
+
+func TestPupil_GetDateOfBirth(t *testing.T) {
+	pupil, _ := pkg.NewPupil("Archie", "James", "Johnson", "04/15/2013")
+
+	if pupil.GetDateOfBirth() != "04/15/2013" {
+		t.Errorf("Expected '04/15/2013' but got %s", pupil.GetDateOfBirth())
+	}
+}
+
+func TestPupil_GetAge(t *testing.T) {
+	pupil, _ := pkg.NewPupil("Archie", "James", "Johnson", "04/15/2013")
+
+	if pupil.GetAge() != 10 {
+		t.Errorf("Expected 11 but got %d", pupil.GetAge())
 	}
 }

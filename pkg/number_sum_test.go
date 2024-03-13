@@ -2,40 +2,119 @@ package pkg_test
 
 import (
 	"bjss-go-training/pkg"
+	"reflect"
 	"testing"
 )
 
-func TestCalculateSum(t *testing.T) {
-	numbers := []int{1, 2, 3, 10, 20, 30, 100, 200, 300}
-	singleDigits := numbers[:3]
-	doubleDigits := numbers[3:6]
-	tripleDigits := numbers[6:]
+var numbers = []int{1, 2, 3, 40, 50, 60, 700, 800, 900}
 
-	expectedSingleDigitSum := 6
-	expectedDoubleDigitSum := 60
-	expectedTripleDigitSum := 600
-	expectedFinal := 666
-
-	singleDigitSum := pkg.CalculateSum(singleDigits)
-	doubleDigitSum := pkg.CalculateSum(doubleDigits)
-	tripleDigitSum := pkg.CalculateSum(tripleDigits)
-
-	finalDigits := []int{singleDigitSum, doubleDigitSum, tripleDigitSum}
-	finalSum := pkg.CalculateSum(finalDigits)
-
-	if singleDigitSum != expectedSingleDigitSum {
-		t.Errorf("Expected %d but got %d", expectedSingleDigitSum, singleDigitSum)
+func TestNumArray_Sum(t *testing.T) {
+	testCase := struct {
+		name     string
+		numArray *pkg.NumArray
+		want     int
+	}{
+		name: "Should correctly sum numbers using Sum method",
+		numArray: &pkg.NumArray{
+			Numbers: numbers,
+		},
+		want: 2556,
 	}
 
-	if doubleDigitSum != expectedDoubleDigitSum {
-		t.Errorf("Expected %d but got %d", expectedDoubleDigitSum, doubleDigitSum)
+	t.Run(testCase.name, func(t *testing.T) {
+		got := testCase.numArray.Sum(testCase.numArray.Numbers)
+
+		if got != testCase.want {
+			t.Errorf("Sum() = %d; want %d", got, testCase.want)
+		}
+
+	})
+}
+
+func TestNumArray_SingleDigits(t *testing.T) {
+	testCase := struct {
+		name     string
+		numArray *pkg.NumArray
+		want     []int
+	}{
+		name: "Should correctly return single digits",
+		numArray: &pkg.NumArray{
+			Numbers: numbers,
+		},
+		want: []int{1, 2, 3},
 	}
 
-	if tripleDigitSum != expectedTripleDigitSum {
-		t.Errorf("Expected %d but got %d", expectedTripleDigitSum, tripleDigitSum)
+	t.Run(testCase.name, func(t *testing.T) {
+		got := testCase.numArray.SingleDigits()
+
+		if !reflect.DeepEqual(got, testCase.want) {
+			t.Errorf("SingleDigits() = %v; want %v", got, testCase.want)
+		}
+	})
+}
+
+func TestNumArray_DoubleDigits(t *testing.T) {
+	testCase := struct {
+		name     string
+		numArray *pkg.NumArray
+		want     []int
+	}{
+		name: "Should correctly return double digits",
+		numArray: &pkg.NumArray{
+			Numbers: numbers,
+		},
+		want: []int{40, 50, 60},
 	}
 
-	if finalSum != expectedFinal {
-		t.Errorf("Expected %d but got %d", expectedFinal, finalSum)
+	t.Run(testCase.name, func(t *testing.T) {
+		got := testCase.numArray.DoubleDigits()
+
+		if !reflect.DeepEqual(got, testCase.want) {
+			t.Errorf("DoubleDigits() = %v; want %v", got, testCase.want)
+		}
+	})
+}
+
+func TestNumArray_TripleDigits(t *testing.T) {
+	testCase := struct {
+		name     string
+		numArray *pkg.NumArray
+		want     []int
+	}{
+		name: "Should correctly return triple digits",
+		numArray: &pkg.NumArray{
+			Numbers: numbers,
+		},
+		want: []int{700, 800, 900},
 	}
+
+	t.Run(testCase.name, func(t *testing.T) {
+		got := testCase.numArray.TripleDigits()
+
+		if !reflect.DeepEqual(got, testCase.want) {
+			t.Errorf("TripleDigits() = %v; want %v", got, testCase.want)
+		}
+	})
+}
+
+func TestNumArray_FinalSum(t *testing.T) {
+	testCase := struct {
+		name     string
+		numArray *pkg.NumArray
+		want     int
+	}{
+		name: "Should correctly return final sum",
+		numArray: &pkg.NumArray{
+			Numbers: numbers,
+		},
+		want: 2556,
+	}
+
+	t.Run(testCase.name, func(t *testing.T) {
+		got := testCase.numArray.FinalSum()
+
+		if got != testCase.want {
+			t.Errorf("FinalSum() = %d; want %d", got, testCase.want)
+		}
+	})
 }

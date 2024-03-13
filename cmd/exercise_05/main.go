@@ -9,18 +9,12 @@ import "bjss-go-training/pkg"
 // - Three triple digit numbers from a third method.
 // - Finally sum all methods into a final sum in the main program.
 func main() {
-	numbers := []int{1, 2, 3, 10, 20, 30, 100, 200, 300}
-	singleDigits := numbers[:3]
-	doubleDigits := numbers[3:6]
-	tripleDigits := numbers[6:]
+	nums := []int{1, 2, 3, 40, 50, 60, 700, 800, 900}
+	numbers := pkg.NumArray{
+		Numbers: nums,
+	}
 
-	singleDigitSum := pkg.CalculateSum(singleDigits)
-	doubleDigitSum := pkg.CalculateSum(doubleDigits)
-	tripleDigitSum := pkg.CalculateSum(tripleDigits)
+	sum := numbers.FinalSum()
 
-	finalDigits := []int{singleDigitSum, doubleDigitSum, tripleDigitSum}
-	finalSum := pkg.CalculateSum(finalDigits)
-
-	println(finalSum)
-
+	println("Final sum:", sum)
 }

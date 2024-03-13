@@ -12,7 +12,10 @@ import (
 // - Count even numbers and odd numbers in increasing and decreasing sequential order.
 // - Display the even and odd count sequences to screen.
 func main() {
-	numbers := []int{5, 9, 1, 4, 7, 6, 3, 8, 2, 10}
+	var numbers []int
+	for i := range 10 {
+		numbers = append(numbers, i+1)
+	}
 
 	ascending := pkg.Ascending(numbers)
 	descending := pkg.Descending(numbers)

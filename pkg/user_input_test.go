@@ -6,15 +6,11 @@ import (
 )
 
 func TestGetFullName(t *testing.T) {
-	first := "Steven"
-	middle := "William"
-	last := "DeLeon"
+	want := "Steven William DeLeon"
 
-	expected := "Steven William DeLeon"
+	got := pkg.GetFullName("Steven", "William", "DeLeon")
 
-	result := pkg.GetFullName(first, middle, last)
-
-	if result != expected {
-		t.Errorf("Expected %s but got %s", expected, result)
+	if got != want {
+		t.Errorf("Expected %s but got %s", want, got)
 	}
 }

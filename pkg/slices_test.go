@@ -5,40 +5,37 @@ import (
 	"testing"
 )
 
-type testName struct {
-	scenario string
-	name     pkg.Name
-	expected string
-}
-
-func TestName_GetFullName(t *testing.T) {
-	testCases := []testName{
-		{
-			scenario: "Should successfully generate outcome using my name",
-			name: pkg.Name{
-				First:  "Steven",
-				Middle: "William",
-				Last:   "DeLeon",
-			},
-			expected: "Steven William DeLeon",
-		},
-		{
-			scenario: "Should successfully generate outcome despite length or repetitive chars",
-			name: pkg.Name{
-				First:  "aaa",
-				Middle: "bbbbbbb",
-				Last:   "ccccc",
-			},
-			expected: "aaa bbbbbbb ccccc",
-		},
+func TestName_SetFullName(t *testing.T) {
+	testCases := []struct {
+		name          pkg.Name
+		fullNameInput string
+		want          bool
+	}{
+		{name: pkg.Name{}, fullNameInput: "Steven William DeLeon", want: false},
+		{name: pkg.Name{}, fullNameInput: "Steven William", want: true},
+		{name: pkg.Name{}, fullNameInput: "foo bar baz", want: false},
 	}
 
 	for _, tc := range testCases {
-		t.Run(tc.scenario, func(t *testing.T) {
-			result := tc.name.GetFullName()
-			if result != tc.expected {
-				t.Errorf("For scenario '%s': Expected %s but got %s", tc.scenario, tc.expected, result)
-			}
-		})
+		err := tc.name.SetFullName(tc.fullNameInput)
+
+		if (err != nil) != tc.want {
+			t.Errorf("Name.SetFullName(%s) = %v, want %v", tc.fullNameInput, err, tc.want)
+		}
+	}
+}
+
+func TestName_GetFullName(t *testing.T) {
+	name := pkg.Name{
+		First:  "Steven",
+		Middle: "William",
+		Last:   "DeLeon",
+	}
+
+	got := name.GetFullName()
+	want := "Steven William DeLeon"
+
+	if got != want {
+		t.Errorf("Name.GetFullName() = %s, want %s", got, want)
 	}
 }
