@@ -1,6 +1,6 @@
 package main
 
-import "bjss-go-training/pkg"
+import "github.com/sdeleon-bjss/pkg"
 
 // Exercise 10:
 // Create a school register program that lists 10 pupils - full name, date of birth and age. [Structures][Arrays][Interfaces]

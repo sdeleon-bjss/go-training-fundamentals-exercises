@@ -1,7 +1,7 @@
 package pkg_test
 
 import (
-	"bjss-go-training/pkg"
+	"github.com/sdeleon-bjss/pkg"
 	"testing"
 	"time"
 )

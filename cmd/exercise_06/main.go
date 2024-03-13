@@ -1,7 +1,7 @@
 package main
 
 import (
-	"bjss-go-training/pkg"
+	"github.com/sdeleon-bjss/pkg"
 	"time"
 )
 

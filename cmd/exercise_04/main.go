@@ -1,8 +1,8 @@
 package main
 
 import (
-	"bjss-go-training/pkg"
 	"fmt"
+	"github.com/sdeleon-bjss/pkg"
 )
 
 // Exercise 4:

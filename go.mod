@@ -1,4 +1,4 @@
-module bjss-go-training
+module github.com/sdeleon-bjss
 
 go 1.22.0
 

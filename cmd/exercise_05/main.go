@@ -1,6 +1,6 @@
 package main
 
-import "bjss-go-training/pkg"
+import "github.com/sdeleon-bjss/pkg"
 
 // Exercise 5:
 // Create a program that accepts and sums nine numbers. [Methods][Arrays][Slices][For loops]

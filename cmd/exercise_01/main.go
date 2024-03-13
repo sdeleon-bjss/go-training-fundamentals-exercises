@@ -1,6 +1,6 @@
 package main
 
-import "bjss-go-training/pkg"
+import "github.com/sdeleon-bjss/pkg"
 
 // Exercise 1:
 // Create a program that has multiple string variable and displays the string on one line. [Strings]
