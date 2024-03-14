@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-var numbers = []int{1, 2, 3, 40, 50, 60, 700, 800, 900}
+var numbers = [9]int{1, 2, 3, 40, 50, 60, 700, 800, 900}
 
 func TestNumArray_Sum(t *testing.T) {
 	testCase := struct {
@@ -18,11 +18,11 @@ func TestNumArray_Sum(t *testing.T) {
 		numArray: &pkg.NumArray{
 			Numbers: numbers,
 		},
-		want: 2556,
+		want: 6,
 	}
 
 	t.Run(testCase.name, func(t *testing.T) {
-		got := testCase.numArray.Sum(testCase.numArray.Numbers)
+		got := testCase.numArray.Sum(testCase.numArray.SingleDigits())
 
 		if got != testCase.want {
 			t.Errorf("Sum() = %d; want %d", got, testCase.want)

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/sdeleon-bjss/pkg"
 )
 
@@ -11,11 +10,7 @@ func main() {
 	fullName := "Steven William DeLeon"
 
 	name := pkg.Name{}
-	err := name.SetFullName(fullName)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
+	_ = name.SetFullName(fullName)
 
-	fmt.Printf("full-name : %s, middle-name : %s, and surname : %s ", name.GetFullName(), name.Middle, name.Last)
+	name.Print()
 }

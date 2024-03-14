@@ -31,3 +31,36 @@
    - Displays the list of cities in alphabetical order.
 9. Extend the program in Exercise 2 by slicing the full name into 3 slices. Display the full-name : <full-name>, middle-name : <middle-name> and surname : <surname> on 3 separate lines. [Slices] [Structures]
 10. Create a school register program that lists 10 pupils - full name, date of birth and age. [Structures][Arrays][Interfaces]
+
+
+## How to run and test
+### Run 
+for running binaries from the root of project:
+```shell
+# if on win
+./cmd/exercise_01/main.exe 
+./cmd/exercise_02/main.exe 
+# ...
+./cmd/exercise_10/main.exe 
+
+# if on mac/unix
+./cmd/exercise_01/main
+./cmd/exercise_02/main
+# ...
+./cmd/exercise_10/main
+```
+
+### Test 
+```shell
+go test -v ./...
+```
+
+### Docs
+> Note - you will need to have `godoc` installed
+```shell
+go install golang.org/x/tools/cmd/godoc@latest
+
+# then run
+godoc -http=:6060
+```
+- then navigate to `http://localhost:6060/pkg/github.com/sdeleon-bjss/pkg/`

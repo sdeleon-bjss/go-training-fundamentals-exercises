@@ -9,7 +9,7 @@ import "github.com/sdeleon-bjss/pkg"
 // - Three triple digit numbers from a third method.
 // - Finally sum all methods into a final sum in the main program.
 func main() {
-	nums := []int{1, 2, 3, 40, 50, 60, 700, 800, 900}
+	nums := [9]int{1, 2, 3, 40, 50, 60, 700, 800, 900}
 	numbers := pkg.NumArray{
 		Numbers: nums,
 	}

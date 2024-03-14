@@ -14,14 +14,14 @@ func TestIsNumberBetweenRange(t *testing.T) {
 		want     bool
 	}{
 		{
-			scenario: "Number is between the range of 1 and 10",
+			scenario: "(success) Number is between the range of 1 and 10",
 			num:      5,
 			start:    1,
 			end:      10,
 			want:     true,
 		},
 		{
-			scenario: "Number is not between range of 1 and 10",
+			scenario: "(fail) Number is not between range of 1 and 10",
 			num:      15,
 			start:    1,
 			end:      10,

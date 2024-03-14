@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// Ascending sorts the numbers in ascending order
 func Ascending(numbers []int) []int {
 	ascending := make([]int, len(numbers))
 	copy(ascending, numbers)
@@ -13,6 +14,7 @@ func Ascending(numbers []int) []int {
 	return ascending
 }
 
+// Descending sorts the numbers in descending order
 func Descending(numbers []int) []int {
 	descending := make([]int, len(numbers))
 	copy(descending, numbers)
@@ -21,6 +23,9 @@ func Descending(numbers []int) []int {
 	return descending
 }
 
+// OddEvenCount counts the odd and even numbers in the array, and returns the sum of each
+//
+// The direction parameter can be either "ascending" or "descending"
 func OddEvenCount(numbers []int, direction string) (int, int) {
 	even := 0
 	odd := 0

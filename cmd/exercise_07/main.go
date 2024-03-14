@@ -15,10 +15,10 @@ import (
 func main() {
 	for i := 0; i < 50; i++ {
 		rolls := pkg.ComboRolls()
-		combinedRolls := rolls[0] + rolls[1]
-		rollResult := pkg.ProcessRoll(combinedRolls)
+		rollsCombined := rolls[0] + rolls[1]
+		rollResult := pkg.ProcessRoll(rollsCombined)
 
-		output := fmt.Sprintf("Roll attempt #%d: You rolled a (%d) = %s", i+1, combinedRolls, rollResult)
+		output := fmt.Sprintf("Roll attempt #%d: You rolled a (%d) = %s", i+1, rollsCombined, rollResult)
 
 		fmt.Println(output)
 	}
