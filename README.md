@@ -1,4 +1,4 @@
-# BJSS Go Academy - Exercises assessment]
+# BJSS Go Academy - Exercises assessment
 
 ## Table of Contents
 1. [Introduction](#introduction)
