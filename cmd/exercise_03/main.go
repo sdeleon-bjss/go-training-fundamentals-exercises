@@ -10,7 +10,10 @@ import (
 func main() {
 	var inputNumber int
 	fmt.Println("Please enter a number: ")
-	fmt.Scan(&inputNumber)
+	_, err := fmt.Scan(&inputNumber)
+	if err != nil {
+		return
+	}
 
 	result := pkg.IsNumberBetweenRange(inputNumber, 1, 10)
 

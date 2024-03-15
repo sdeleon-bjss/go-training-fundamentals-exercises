@@ -15,6 +15,5 @@ func main() {
 	}
 
 	sum := numbers.FinalSum()
-
 	println("Final sum:", sum)
 }

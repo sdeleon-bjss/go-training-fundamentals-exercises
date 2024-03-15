@@ -1,9 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"github.com/sdeleon-bjss/pkg"
-)
+import "github.com/sdeleon-bjss/pkg"
 
 // Exercise 07:
 // Create a program that rolls two dice (1 to 6) fifty times. Display the number rolls and the outcomes in sequential order.
@@ -13,13 +10,12 @@ import (
 // - 3 and 12 is called LOSS-CRAPS
 // - Any other combination is called NEUTRAL.
 func main() {
-	for i := 0; i < 50; i++ {
-		rolls := pkg.ComboRolls()
-		rollsCombined := rolls[0] + rolls[1]
-		rollResult := pkg.ProcessRoll(rollsCombined)
+	dice := pkg.Dice{}
 
-		output := fmt.Sprintf("Roll attempt #%d: You rolled a (%d) = %s", i+1, rollsCombined, rollResult)
-
-		fmt.Println(output)
+	for i := 1; i <= 50; i++ {
+		dice.FirstRoll = dice.Roll()
+		dice.SecondRoll = dice.Roll()
+		dice.Combined = dice.SetCombined()
+		dice.PrintRoll(i)
 	}
 }

@@ -8,17 +8,29 @@ import (
 // Exercise 2:
 // Create a program that lets the user input a first name, middle name and last name. Display the person's full name on one line. [Keyboard input]
 func main() {
-	var firstName, middleName, lastName string
-	fmt.Println("Please enter your first name: ")
-	fmt.Scan(&firstName)
+	firstName := getInput("Enter your first name: ")
+	middleName := getInput("Enter your middle name: ")
+	lastName := getInput("Enter your last name: ")
 
-	fmt.Println("Please enter your middle name: ")
-	fmt.Scan(&middleName)
+	name := pkg.Name{}
+	err := name.SetFullName(pkg.GetFullName(firstName, middleName, lastName))
+	if err != nil {
+		println(err)
+		return
+	}
 
-	fmt.Println("Please enter your last name: ")
-	fmt.Scan(&lastName)
-
-	fullName := pkg.GetFullName(firstName, middleName, lastName)
-
+	fullName := name.GetFullName()
 	println("Your full name is: ", fullName)
+}
+
+func getInput(prompt string) string {
+	var input string
+	fmt.Println(prompt)
+
+	_, err := fmt.Scan(&input)
+	if err != nil {
+		return ""
+	}
+
+	return input
 }

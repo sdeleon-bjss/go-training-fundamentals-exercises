@@ -1,4 +1,10 @@
-# BJSS Go Academy - Exercises assessment
+# BJSS Go Academy - Exercises assessment]
+
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Resources](#resources)
+3. [Exercises](#exercises)
+4. [How to run and test](#how-to-run-and-test)
 
 ### Resources
 - [Go Academy](https://bjss.learnamp.com/en/learnlists/golang-academy)
@@ -34,33 +40,16 @@
 
 
 ## How to run and test
-### Run 
-for running binaries from the root of project:
+> all commands can be run from root as follows
+### Run
+- using the `main.go` file in each exercise
 ```shell
-# if on win
-./cmd/exercise_01/main.exe 
-./cmd/exercise_02/main.exe 
+go run ./cmd/exercise_01/main.go
 # ...
-./cmd/exercise_10/main.exe 
-
-# if on mac/unix
-./cmd/exercise_01/main
-./cmd/exercise_02/main
-# ...
-./cmd/exercise_10/main
+go run ./cmd/exercise_10/main.go
 ```
 
-### Test 
+### Test
 ```shell
-go test -v ./...
+go test -v ./pkg/...
 ```
-
-### Docs
-> Note - you will need to have `godoc` installed
-```shell
-go install golang.org/x/tools/cmd/godoc@latest
-
-# then run
-godoc -http=:6060
-```
-- then navigate to `http://localhost:6060/pkg/github.com/sdeleon-bjss/pkg/`

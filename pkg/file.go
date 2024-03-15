@@ -6,9 +6,6 @@ import (
 	"os"
 )
 
-// WriteStringsToFile writes a slice of strings to a file
-//
-// This will create a new file at root of project
 func WriteStringsToFile(strings []string, filename string) error {
 	file, err := os.Create(filename)
 	if err != nil {
@@ -28,9 +25,6 @@ func WriteStringsToFile(strings []string, filename string) error {
 	return writer.Flush()
 }
 
-// ReadStringsFromFile reads a slice of strings from a file
-//
-// Expects a file at root of project
 func ReadStringsFromFile(filename string) ([]string, error) {
 	file, err := os.Open(filename)
 	if err != nil {
